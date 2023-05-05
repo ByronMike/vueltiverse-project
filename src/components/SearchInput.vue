@@ -17,15 +17,26 @@
           />
         </svg>
       </span>
-      <button class="absolute right-3 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-4 rounded">Search</button>
+      <button
+        class="absolute right-3 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-4 rounded"
+        @click="search"
+      >Search</button>
       <input
+        v-model="searchInput"
         class="w-full placeholder:text-slate-400 text-lg shadow-xl shadow-indigo-500/50 appearance-none border-4 border-indigo-500 rounded-lg py-6 pl-16 pr-28 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="text"
         placeholder="Search for a character"
       >
     </label>
   </div>
+  <p>{{ searchInput }}</p>
 </template>
-
 <script setup lang="ts">
+import { ref } from "vue";
+
+let searchInput = ref("");
+
+const search = () => {
+  console.log(searchInput.value);
+};
 </script>
